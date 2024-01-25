@@ -1,2 +1,2 @@
 # technical-assessment
-My submission then technical interview assessment. 
+My solution submission for the technical interview assessment. 
