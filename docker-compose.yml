@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  jupyter-notebook:
+    image: jupyter/minimal-notebook
+    container_name: jupyter-notebook 
+    volumes:
+      - ./jupyter-data:/home/jovyan/work
+    ports:
+      - 8888:8888
+    networks:
+      - global-network
+  pgdatabase:
+    image: postgres
+    container_name: postgres-db
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=RetailDB
+    networks: 
+      - global-network
+  pgadmin: 
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    environment: 
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports: 
+      - 8080:80
+    networks: 
+      - global-network 
+
+volumes:
+  db-data: 
+    name: db-data
+
+
+networks: 
+  global-network: 
+    name: global-network
+
