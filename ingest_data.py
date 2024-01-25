@@ -15,8 +15,11 @@ def batch_load_data(engine, csv_file, table_name):
     df_iter = pd.read_csv(csv_file, iterator=True, chunksize=100000)
     df = next(df_iter)
 
-    df.head(n=0).to_sql(name=table_name, con=engine, if_exists='replace')
-    df.to_sql(name=table_name, con=engine, if_exists='append')
+    df.InvoiceDate = pd.to_datetime(df.InvoiceDate)
+    df.head(n=0).to_sql(name=table_name, con=engine,
+                        if_exists='replace', index=True, index_label='Id')
+    df.to_sql(name=table_name, con=engine, if_exists='append',
+              index=True, index_label='Id')
 
     elapsed_time = -1
     try:
@@ -28,7 +31,9 @@ def batch_load_data(engine, csv_file, table_name):
             chunck_start = time()
 
             df = next(df_iter)
-            df.to_sql(name=table_name, con=engine, if_exists='append')
+            df.InvoiceDate = pd.to_datetime(df.InvoiceDate)
+            df.to_sql(name=table_name, con=engine,
+                      if_exists='append', index=True, index_label='Id')
             print(
                 f'Inserted chunck {chuncks_cnt} in {time()-chunck_start:.3}s')
     except:
