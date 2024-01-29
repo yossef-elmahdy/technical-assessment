@@ -2,7 +2,7 @@
 My solution submission for the technical assessment task. 
 
 ## Project Flow 
-![project-flow]()
+![project-flow](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/project_flow.png)
 
 ## How to run 
 I desgined the code to be dockerized on container to run all scripts on one container containing the data and the flow of the execution. 
@@ -26,9 +26,9 @@ docker-compose up -d
 
 
 ### 2. Configure pg-admin4 to connect to RetailDB 
-![configure_1]()
-![configure_2]()
-![configure_3]()
+![configure_1](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/configure_1.png)
+![configure_2](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/configure_2.png)
+![configure_3](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/configure_3.png)
 
 ### 3. Running scripts container 
 To be able to run the scripts, you need to build and and run the `Dockerfile`, you can execute the following commands on the directory that contains `Dockerfile`
@@ -63,9 +63,9 @@ You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that c
 
 
 ## Project Structure 
-├── Dockerfile
-├── README.md
-├── build_populate_dwh.py        
+├── Dockerfile \
+├── README.md \
+├── build_populate_dwh.py \
 ├── clean_data.py
 ├── docker-compose.yml
 ├── dwh-design
