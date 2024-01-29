@@ -2,12 +2,18 @@ FROM python:3.9
 
 RUN pip install pandas sqlalchemy psycopg2
 
-WORKDIR /app
-COPY ingest_data.py ingest_data.py 
+WORKDIR /app 
+
+COPY ingest_base_data.py ingest_base_data.py 
 COPY ./jupyter-data/online_retail.csv online_retail.csv
 
-ENTRYPOINT [ "python", "ingest_data.py" ]
+COPY etl_utils.py etl_utils.py 
+COPY extract_transform_load_data.py extract_transform_load_data.py
 
+COPY run_project.sh  run_project.sh 
+RUN chmod a+x run_project.sh 
 
-# 1. docker build -t ingest-retail-data:v1 .
-# 2. docker run -it --network=global-network ingest-retail-data:v1 --user root --password root --host postgres-db --port 5432 --db RetailDB --table_name online_retail --csv_file online_retail.csv 
+ENTRYPOINT [ "./run_project.sh"]
+
+# 1. docker build -t artefact-project:v01 .
+# 2. (winpty) docker run -it --network=global-network artefact-project:v01
