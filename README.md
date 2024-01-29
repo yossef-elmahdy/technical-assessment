@@ -1,8 +1,8 @@
 # Technical Assessment Solution 
 My solution submission for the technical assessment task. 
 
-## Project Flow 
-![project-flow](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/project_flow.png)
+## Project Pipeline 
+![project-pipeline](https://github.com/yossef-elmahdy/technical-assessment/blob/main/images/project_flow.png)
 
 ## How to run 
 I desgined the code to be dockerized on container to run all scripts on one container containing the data and the flow of the execution. 
@@ -57,6 +57,9 @@ You can watch your schdules log by typing the following command
 ```yaml 
 greb CRON /var/log/sylog
 ```
+
+## Data Warehouse Schema 
+![dwh-schema](https://github.com/yossef-elmahdy/technical-assessment/blob/main/dwh-design/oneline-retail-dwh-v4.png)
 
 ## Project Investigation and dig-deep 
 You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that contains investigations and what I was thinking and executing before building final scripts 
