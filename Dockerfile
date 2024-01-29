@@ -9,9 +9,9 @@ COPY utils.py utils.py
 COPY ingest_base_data.py ingest_base_data.py 
 COPY ./jupyter-data/online_retail.csv online_retail.csv
 
-COPY clean_data,py clean_data.py 
+COPY clean_data.py clean_data.py 
 
-COPY build_populate_dwh,py build_populate_dwh.py 
+COPY build_populate_dwh.py build_populate_dwh.py 
 
 COPY etl_utils.py etl_utils.py 
 COPY extract_transform_load_data.py extract_transform_load_data.py
