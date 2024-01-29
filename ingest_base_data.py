@@ -1,14 +1,7 @@
-import argparse
-import pandas as pd
 from time import time
-from sqlalchemy import create_engine
-
-
-def database_connect(user, password, host, port, db):
-    engine = create_engine(
-        f'postgresql://{user}:{password}@{host}:{port}/{db}')
-    engine.connect()
-    return engine
+import pandas as pd
+import argparse
+import utils
 
 
 def batch_load_data(engine, csv_file, table_name):
@@ -54,7 +47,7 @@ def main(params):
     table_name = params.table_name
     csv_file = params.csv_file
 
-    db_engine = database_connect(user, password, host, port, db)
+    db_engine = utils.database_connect(user, password, host, port, db)
     batch_load_data(db_engine, csv_file, table_name)
 
 

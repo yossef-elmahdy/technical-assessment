@@ -1,4 +1,5 @@
 import argparse
+import utils
 import etl_utils
 
 
@@ -13,7 +14,7 @@ def run_etl(base_url, db_engine):
         file_not_found = etl_utils.extract_data(url, csv_file)
         csv_file = 'ext_' + csv_file
         if file_not_found == 0:
-            df = etl_utils.transform_data(csv_file)
+            df = utils.transform_data(csv_file=csv_file)
             etl_utils.load_data(df, db_engine)
             cnt += 1
     return cnt
@@ -27,7 +28,7 @@ def main(params):
     db = params.db
     base_url = params.base_url
 
-    db_engine = etl_utils.database_connect(user, password, host, port, db)
+    db_engine = utils.database_connect(user, password, host, port, db)
     files_completed_cnt = run_etl(base_url, db_engine)
     print(f'>> Successfully completed {files_completed_cnt} csv files <<')
 
