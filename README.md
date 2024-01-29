@@ -66,18 +66,18 @@ You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that c
 ├── Dockerfile \
 ├── README.md \
 ├── build_populate_dwh.py \
-├── clean_data.py
-├── docker-compose.yml
-├── dwh-design
-├── etl-data
-├── etl_utils.py
-├── extract_transform_load_data.py
-├── ingest_base_data.py
-├── jupyter-data
-│   ├── data_cleaning_validation.ipynb
-│   ├── data_ingestion.ipynb
-│   ├── data_warehouse_build.ipynb
-│   ├── etl_process.ipynb
-│   ├── online_retail.csv
-├── run_project.sh
-└── utils.py
+├── clean_data.py \
+├── docker-compose.yml \
+├── dwh-design \
+├── etl-data \
+├── etl_utils.py \
+├── extract_transform_load_data.py \
+├── ingest_base_data.py \
+├── jupyter-data \
+│   ├── data_cleaning_validation.ipynb \
+│   ├── data_ingestion.ipynb \
+│   ├── data_warehouse_build.ipynb \
+│   ├── etl_process.ipynb \
+│   ├── online_retail.csv \
+├── run_project.sh \
+└── utils.py \
