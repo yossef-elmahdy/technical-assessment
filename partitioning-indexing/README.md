@@ -15,10 +15,10 @@ After creation of the cleaned table and the data warehous tables, it is time to 
     - `InvoiceNo`, `Quantity` and `UnitPrice`
     - `StockCode`
     #### Before Partitioning/Indexing
-    ![online_retail_sales_before]()
+    ![online_retail_sales_before](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/online_retail_sales/Before.png)
 
     #### After Partitioning/Indexing
-    ![online_retail_sales_after]()
+    ![online_retail_sales_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/online_retail_sales/After.png)
 
 ## `DimDate` 
 ### Partitioning Strategy 
@@ -34,10 +34,10 @@ After creation of the cleaned table and the data warehous tables, it is time to 
     - `Day` 
     - `Week` 
     #### Before Partitioning/Indexing
-    ![DimDate_before]()
+    ![DimDate_before](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimDate/FullDate_Before.png)
 
     #### After Partitioning/Indexing
-    ![DimDate_after]()
+    ![DimDate_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimDate/FullDate_Before.png)
 
 ## `DimCustomer` 
 ### Partitioning Strategy 
@@ -49,10 +49,10 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 - Clustered Balanced Tree (BTREE):
     - `CustomerID`
     #### Before Partitioning/Indexing
-    ![DimCustomer_before]()
+    ![DimCustomer_before](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimCustomer/CustomerID_Before.png)
 
     #### After Partitioning/Indexing
-    ![DimCustomer_after]()
+    ![DimCustomer_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimCustomer/CustomerID_After.png)
 
 ## `DimProduct` 
 ### Partitioning Strategy 
@@ -64,7 +64,7 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 - Non-Clustered Balanced Tree (BTREE): 
     - `StockCode` and `UnitPrice`
     #### Before Partitioning/Indexing
-    ![DimProduct_before]()
+    ![DimProduct_before](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimProduct/UnitPrice_Before.png)
 
     #### After Partitioning/Indexing
-    ![DimProduct_after]()
+    ![DimProduct_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimProduct/UnitPrice_After.png)
