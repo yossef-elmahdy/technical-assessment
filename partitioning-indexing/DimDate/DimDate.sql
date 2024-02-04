@@ -1,0 +1,144 @@
+-- Partitioning 
+SELECT "Year",
+	COUNT(*)
+FROM "DimDate"
+GROUP BY "Year"
+
+CREATE TABLE DimDate (
+    DateKey BIGINT NOT NULL,
+    FullDate DATE,
+    Year BIGINT,
+    Month BIGINT,
+    Day BIGINT,
+    Week BIGINT,
+    MonthName TEXT COLLATE pg_catalog."default",
+    DayName TEXT COLLATE pg_catalog."default",
+    CONSTRAINT DimDate_pkey PRIMARY KEY (DateKey, FullDate)
+) PARTITION BY RANGE (FullDate);
+
+
+CREATE TABLE DimDate_2010 PARTITION OF DimDate
+    FOR VALUES FROM ('2010-01-01') TO ('2011-01-01');
+
+CREATE TABLE DimDate_2011 PARTITION OF DimDate
+    FOR VALUES FROM ('2011-01-01') TO ('2012-01-01');
+
+CREATE TABLE DimDate_2012 PARTITION OF DimDate
+    FOR VALUES FROM ('2012-01-01') TO ('2013-01-01');
+
+CREATE TABLE DimDate_2013 PARTITION OF DimDate
+    FOR VALUES FROM ('2013-01-01') TO ('2014-01-01');
+
+CREATE TABLE DimDate_2014 PARTITION OF DimDate
+    FOR VALUES FROM ('2014-01-01') TO ('2015-01-01');
+
+CREATE TABLE DimDate_2015 PARTITION OF DimDate
+    FOR VALUES FROM ('2015-01-01') TO ('2016-01-01');
+
+CREATE TABLE DimDate_2016 PARTITION OF DimDate
+    FOR VALUES FROM ('2016-01-01') TO ('2017-01-01');
+
+CREATE TABLE DimDate_2017 PARTITION OF DimDate
+    FOR VALUES FROM ('2017-01-01') TO ('2018-01-01');
+
+CREATE TABLE DimDate_2018 PARTITION OF DimDate
+    FOR VALUES FROM ('2018-01-01') TO ('2019-01-01');
+
+CREATE TABLE DimDate_2019 PARTITION OF DimDate
+    FOR VALUES FROM ('2019-01-01') TO ('2020-01-01');
+
+CREATE TABLE DimDate_2020 PARTITION OF DimDate
+    FOR VALUES FROM ('2020-01-01') TO ('2021-01-01');
+
+CREATE TABLE DimDate_2021 PARTITION OF DimDate
+    FOR VALUES FROM ('2021-01-01') TO ('2022-01-01');
+
+CREATE TABLE DimDate_2022 PARTITION OF DimDate
+    FOR VALUES FROM ('2022-01-01') TO ('2023-01-01');
+
+CREATE TABLE DimDate_2023 PARTITION OF DimDate
+    FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');
+
+CREATE TABLE DimDate_2024 PARTITION OF DimDate
+    FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
+
+
+ALTER TABLE DimDate_2010 ADD CONSTRAINT DimDate_2010_FullDate_check
+    CHECK (FullDate >= '2010-01-01' AND FullDate < '2011-01-01');
+
+ALTER TABLE DimDate_2011 ADD CONSTRAINT DimDate_2011_FullDate_check
+    CHECK (FullDate >= '2011-01-01' AND FullDate < '2012-01-01');
+
+ALTER TABLE DimDate_2012 ADD CONSTRAINT DimDate_2012_FullDate_check
+    CHECK (FullDate >= '2012-01-01' AND FullDate < '2013-01-01');
+
+ALTER TABLE DimDate_2013 ADD CONSTRAINT DimDate_2013_FullDate_check
+    CHECK (FullDate >= '2013-01-01' AND FullDate < '2014-01-01');
+
+ALTER TABLE DimDate_2014 ADD CONSTRAINT DimDate_2014_FullDate_check
+    CHECK (FullDate >= '2014-01-01' AND FullDate < '2015-01-01');
+
+ALTER TABLE DimDate_2015 ADD CONSTRAINT DimDate_2015_FullDate_check
+    CHECK (FullDate >= '2015-01-01' AND FullDate < '2016-01-01');
+
+ALTER TABLE DimDate_2016 ADD CONSTRAINT DimDate_2016_FullDate_check
+    CHECK (FullDate >= '2016-01-01' AND FullDate < '2017-01-01');
+
+ALTER TABLE DimDate_2017 ADD CONSTRAINT DimDate_2017_FullDate_check
+    CHECK (FullDate >= '2017-01-01' AND FullDate < '2018-01-01');
+
+ALTER TABLE DimDate_2018 ADD CONSTRAINT DimDate_2018_FullDate_check
+    CHECK (FullDate >= '2018-01-01' AND FullDate < '2019-01-01');
+
+ALTER TABLE DimDate_2019 ADD CONSTRAINT DimDate_2019_FullDate_check
+    CHECK (FullDate >= '2019-01-01' AND FullDate < '2020-01-01');
+
+ALTER TABLE DimDate_2020 ADD CONSTRAINT DimDate_2020_FullDate_check
+    CHECK (FullDate >= '2020-01-01' AND FullDate < '2021-01-01');
+
+ALTER TABLE DimDate_2021 ADD CONSTRAINT DimDate_2021_FullDate_check
+    CHECK (FullDate >= '2021-01-01' AND FullDate < '2022-01-01');
+
+ALTER TABLE DimDate_2022 ADD CONSTRAINT DimDate_2022_FullDate_check
+    CHECK (FullDate >= '2022-01-01' AND FullDate < '2023-01-01');
+
+ALTER TABLE DimDate_2023 ADD CONSTRAINT DimDate_2023_FullDate_check
+    CHECK (FullDate >= '2023-01-01' AND FullDate < '2024-01-01');
+
+ALTER TABLE DimDate_2024 ADD CONSTRAINT DimDate_2024_FullDate_check
+    CHECK (FullDate >= '2024-01-01' AND FullDate < '2025-01-01');
+
+-- OTHER ANSWER >> We can use "Year" column with range of dates 
+
+-- Indexing 
+-- Before 
+EXPLAIN ANALYZE 
+SELECT * 
+FROM "DimDate"
+where "FullDate" >= '2010-03-01' AND "FullDate" <= '2010-05-01' 
+
+CREATE INDEX "BRI_DimDate_FullDate" 
+ON "DimDate" USING BRIN 
+("FullDate");
+
+ALTER TABLE "DimDate"
+CLUSTER ON "ix_DimDate_DateKey"
+
+
+CREATE INDEX "NCI_DimDate_Month"
+ON "DimDate" USING BTREE ("Month");
+
+
+CREATE INDEX "NCI_DimDate_Day"
+ON "DimDate" USING BTREE ("Day");
+
+CREATE INDEX "NCI_DimDate_Week"
+ON "DimDate" USING BTREE ("Week");
+
+-- After  
+EXPLAIN ANALYZE 
+SELECT * 
+FROM "DimDate"
+where "FullDate" >= '2010-03-01' AND "FullDate" <= '2010-05-01' 
+
+
