@@ -61,6 +61,9 @@ greb CRON /var/log/sylog
 ## Data Warehouse Schema 
 ![dwh-schema](https://github.com/yossef-elmahdy/technical-assessment/blob/main/dwh-design/oneline-retail-dwh-v4.png)
 
+## Partitioning and Indexing 
+You will find the partitioning and indexing strategy in this [section](https://github.com/yossef-elmahdy/technical-assessment/tree/main/partitioning-indexing)
+
 ## Project Investigation and dig-deep 
 You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that contains investigations and what I was thinking and executing before building final scripts 
 
