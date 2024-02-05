@@ -5,6 +5,9 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 ### Partitioning Strategy 
 - Partition type: Multilevel 
 - Partitioned column(s): RANGE(`InvoiceDate`) >> LIST(`Country`) 
+### Automated Partitioning 
+- Automated: NO (#TO-DO)
+- Strategy: -
 ### Indexing Strategy 
 - Block Range Index (BRIN): 
     - `InvoiceDate`
@@ -24,6 +27,9 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 ### Partitioning Strategy 
 - Partition type: RANGE
 - Partitioned column(s): `FullDate`
+### Automated Partitioning 
+- Automated: NO (#TO-DO)
+- Strategy: -
 ### Indexing Strategy 
 - Block Range Index (BRIN): 
     - `FullDate`
@@ -43,6 +49,9 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 ### Partitioning Strategy 
 - Partition type: LIST 
 - Partitioned column(s): `Country`
+### Automated Partitioning 
+- Automated: NO (#TO-DO)
+- Strategy: -
 ### Indexing Strategy 
 - Hash Index (HASH): 
     - `Country`
@@ -58,6 +67,9 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 ### Partitioning Strategy 
 - Partition type: LIST 
 - Partitioned column(s): `StockCode`
+### Automated Partitioning 
+- Automated: YES 
+- Strategy: When a new record is added, will automatically check the number of occurnce of this product's `StockCode` on `DimProduct` table and add a new partition if it exceeds 10. 
 ### Indexing Strategy 
 - Clustered Balanced Tree (BTREE):
     - `UnitPrice`
