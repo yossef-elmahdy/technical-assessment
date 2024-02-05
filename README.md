@@ -64,6 +64,9 @@ greb CRON /var/log/sylog
 ## Partitioning and Indexing 
 You will find the partitioning and indexing strategy in this [section](https://github.com/yossef-elmahdy/technical-assessment/tree/main/partitioning-indexing)
 
+## Quality and Version Management  
+You will find the quality and version management strategies in this [section](https://github.com/yossef-elmahdy/technical-assessment/tree/main/quality-versioning-management)
+
 ## Project Investigation and dig-deep 
 You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that contains investigations and what I was thinking and executing before building final scripts 
 
