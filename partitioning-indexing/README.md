@@ -80,3 +80,29 @@ After creation of the cleaned table and the data warehous tables, it is time to 
 
     #### After Partitioning/Indexing
     ![DimProduct_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/DimProduct/UnitPrice_After.png)
+
+## `FactRetailSales` 
+### Partitioning Strategy 
+- Partition type: RANGE 
+- Partitioned column(s): `InvoiceDate`
+### Automated Partitioning 
+- Automated: NO 
+- Strategy: -
+### Indexing Strategy 
+- Clustered Balanced Tree (BTREE):
+    - `UnitPrice`
+- Non-Clustered Balanced Tree (BTREE): 
+    - For better joins: 
+        - `DateKey`
+        - `ProductKey`
+        - `CustomerKey`
+    - For better filters: 
+        - `Quantity`
+        - `TotalLine`
+        - `InvoiceDate` and `TotalLine`
+
+    #### Before Partitioning/Indexing
+    ![FactRetailSales_before]()
+
+    #### After Partitioning/Indexing
+    ![FactRetailSales_after]()
