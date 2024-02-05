@@ -72,21 +72,42 @@ You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that c
 
 
 ## Project Structure 
-├── Dockerfile \
+├── Dockerfile \ 
+├── LICENSE \
 ├── README.md \
 ├── build_populate_dwh.py \
-├── clean_data.py \
+├── clean_data.py \        
+├── crontab.sh \
 ├── docker-compose.yml \
 ├── dwh-design \
 ├── etl-data \
 ├── etl_utils.py \
 ├── extract_transform_load_data.py \
+├── images \
 ├── ingest_base_data.py \
 ├── jupyter-data \
 │   ├── data_cleaning_validation.ipynb \
 │   ├── data_ingestion.ipynb \
 │   ├── data_warehouse_build.ipynb \
 │   ├── etl_process.ipynb \
-│   ├── online_retail.csv \
+│   └── online_retail.csv \
+├── partitioning-indexing \
+│   ├── DimCustomer \
+│   │   └── DimCustomer.sql \
+│   ├── DimDate \
+│   │   └── DimDate.sql \
+│   ├── DimProduct \
+│   │   └── DimProduct.sql \
+│   ├── FactRetailSales \
+│   │   └── FactRetailSales.sql \
+│   ├── online_retail_sales \
+│   |   └── online_retail_sales.sql \
+│   └── README.md \
+├── quality-versioning-management \
+│   ├── ALTER_online_retail_sales.sql \
+│   ├── LOGGING_online_retail_sales.sql \
+│   └── README.md \
 ├── run_project.sh \
-└── utils.py 
+└── utils.py \
+
+11 directories, 59 files
