@@ -44,4 +44,10 @@ CREATE TABLE "LOG_online_retail_cleaned" (
 );
 ```
 
-
+### Evidence 
+#### 1. INSERT 
+![INSERT](https://github.com/yossef-elmahdy/technical-assessment/blob/main/quality-versioning-management/INSERT.png)
+#### 2. UPDATE 
+![UPDATE](https://github.com/yossef-elmahdy/technical-assessment/blob/main/quality-versioning-management/UPDATE.png)
+#### 3. DELETE 
+![DELETE](https://github.com/yossef-elmahdy/technical-assessment/blob/main/quality-versioning-management/DELETE%20.png)
