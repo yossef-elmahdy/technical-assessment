@@ -71,7 +71,7 @@ You will find the quality and version management strategies in this [section](ht
 You can find my sandbox **Jupyter Notebooks** on `jupyter-data` directory that contains investigations and what I was thinking and executing before building final scripts 
 
 
-## Project Structure 
+## Project Structure \
 ├── Dockerfile \ 
 ├── LICENSE \
 ├── README.md \
