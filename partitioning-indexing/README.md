@@ -102,7 +102,7 @@ After creation of the cleaned table and the data warehous tables, it is time to 
         - `InvoiceDate` and `TotalLine`
 
     #### Before Partitioning/Indexing
-    ![FactRetailSales_before]()
+    ![FactRetailSales_before](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/FactRetailSales/TotalLine_Before.png)
 
     #### After Partitioning/Indexing
-    ![FactRetailSales_after]()
+    ![FactRetailSales_after](https://github.com/yossef-elmahdy/technical-assessment/blob/main/partitioning-indexing/FactRetailSales/TotalLine_After.png)
